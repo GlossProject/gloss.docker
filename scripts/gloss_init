@@ -1,0 +1,15 @@
+# script: gloss_init acme.theme
+
+# 1. Prepare the directories: resources, data/filestorage, data/blobstorage
+THEME_NAME=$1
+mkdir -p {resources/theme,data/filestorage,data/blobstorage}
+cd resources/theme
+echo "------> initializing $THEME_NAME"
+git clone https://github.com/GlossProject/gloss.diazotheme $THEME_NAME
+
+# 2. Swap out theme name in manifest.cfg and .gitlab-ci.yml
+cd $THEME_NAME
+sed -i "s/gloss/$THEME_NAME/g" manifest.cfg
+sed -i "s/title = CCRP Theme/title = $THEME_NAME/g" manifest.cfg
+sed -i "s/[[Theme name]]/$THEME_NAME/g" .gitlab-ci.yml
+
