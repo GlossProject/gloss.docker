@@ -11,5 +11,5 @@ git clone https://github.com/GlossProject/gloss.diazotheme $THEME_NAME
 cd $THEME_NAME
 sed -i "s/gloss/$THEME_NAME/g" manifest.cfg
 sed -i "s/title = Gloss Theme/title = $THEME_NAME/g" manifest.cfg
-sed -i "s/[[Theme name]]/$THEME_NAME/g" .gitlab-ci.yml
+sed -i "s/%Theme name%/$THEME_NAME/g" .gitlab-ci.yml
 
