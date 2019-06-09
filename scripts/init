@@ -2,6 +2,7 @@
 
 # 1. Prepare the directories: resources, data/filestorage, data/blobstorage
 THEME_NAME=$1
+echo "------> Creating resources/theme/$THEME_NAME"
 mkdir -p {resources/theme,data/filestorage,data/blobstorage}
 cd resources/theme
 echo "------> initializing $THEME_NAME"
@@ -13,3 +14,4 @@ sed -i "s/gloss/$THEME_NAME/g" manifest.cfg
 sed -i "s/title = Gloss Theme/title = $THEME_NAME/g" manifest.cfg
 sed -i "s/%Theme name%/$THEME_NAME/g" .gitlab-ci.yml
 
+echo "------------ Use 'ls resources/theme' to list your themes'"
